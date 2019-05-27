@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dom</title>
+    <script>
+        function changetxt(id) {
+            id.innerHTML='Ooops!'
+        }
+    </script>
+</head>
+<body>
+    <p id="p3"></p>
+    <p id="p1" onclick="changetxt(this)">Hello world</p>
+    <p id="p2">你好</p>
+    <button type="button" onclick="document.getElementById('p1').style.color = 'red'">点我</button>
+    <h1 onclick="this.innerHTML = '哈哈哈'">Ooops!</h1>
+    <button onclick="displayDate()">点这里显示时间是的</button>
+    <div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:#D94A38;width:120px;height:20px;padding:40px;">Mouse Over Me</div>
+    <script>
+        document.write(Date());
+        document.getElementById('p1').innerHTML = 'Welcome to Js';
+        var x = document.getElementById('p2');
+        x.innerHTML = '欢迎';
+        x.style.backgroundColor = '#359888';
+        function displayDate() {
+            document.getElementById('p3').innerHTML = Date();
+        }
+        document.getElementById('p2').onclick =function() {displayDate()};
+        function mOver(Obj) {
+            Obj.innerHTML = '爱你'
+        }
+        function mOut(Obj) {
+            Obj.innerHTML = '点我呀'
+        }
+        document.getElementById('p2').addEventListener('click', function() {alert('Hello, world');});
+    </script>
+</body>
+</html>

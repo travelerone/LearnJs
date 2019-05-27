@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dom</title>
+</head>
+<body>
+    <div id="div1">
+        <p id="p1">你好</p>
+        <p id="p2">我很好</p>
+    </div>
+    <script>
+        var para = document.createElement('p');//创建p元素
+        var node = document.createTextNode('这是一个新的段落。');//为p元素添加文本节点
+        para.appendChild(node);//将文本节点添加到p元素中
+        var element = document.getElementById('div1');//查找已存在的元素
+        element.appendChild(para);//添加到已存在的元素中
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1"></div>
+    <div id="d2"></div>
+    <div id="d3"></div>
+    <script>
+        var colors = [];
+        //while循环3个颜色
+        while (colors.length < 3) {
+            var color = "#";
+            for (var i = 0; i < 3; i++) {
+                var n = Math.round((Math.random() * 255));
+                if (n < 16) {
+                    color += "0";
+                    color += n.toString(16);
+                } else {
+                    color += n.toString(16);
+                }
+            }
+            colors.push(color);
+        }
+        //为div赋值颜色
+        document.getElementById("d1").style.background = colors[0];
+        document.getElementById("d2").style.background = colors[1];
+        document.getElementById("d3").style.background = colors[2];
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+body,
+p{
+    margin: 0;
+}
+.box{
+    width: 31%;
+    padding-bottom: 31%;
+    margin: 1%;
+    background-color: #ffa500;
+    border-radius: 10px;
+    float: left;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>随机从数组中选取数组元素</title>
+</head>
+
+<body>
+    <!-- https://blog.csdn.net/u011277123/article/details/72468002 -->
+    <!-- <script>
+        var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];//数组arr
+        var result = [];//结果数组
+        var ranNum = 5;//选取的数的多少
+        for (var i = 0; i < ranNum; i++) {
+            var ran = Math.floor(Math.random() * arr.length);//随机选取一个数
+            result.push(arr[ran]);//添加到结果数组里
+            var center = arr[ran];//替换变量
+            arr[ran] = arr[arr.length - 1];//随机选的那个数用最后一个代替
+            arr[arr.length - 1] = center;//最后一个数是随机的那个数
+            arr = arr.slice(0, arr.length - 1);//删掉最后那个数
+        };
+    </script>
+    <script>
+        //去掉“数组长度”的控制
+        var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+        var result = [];
+        var ranNum = 9;
+        for (var i = 0; i < ranNum; i++) {
+            var ran = Math.floor(Math.random() * (arr.length - i))
+            result.push(arr[ran]);
+            var center = arr[ran];
+            arr[ran] = arr[arr.length - i - 1];
+            arr[arr.length - i - 1] = center;
+        }
+    </script> -->
+    <script>
+        //取消“处理数组末尾的元素”
+        var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+        var result = [];
+        var ranNum = 7;
+        for (var i = 0; i < ranNum; i++) {
+            var ran = Math.floor(Math.random() * (arr.length - i))
+            // result.push(arr[ran]);
+            // arr[ran] = arr[arr.length - i - 1];
+            result.push(arr.splice(arr[ran],1)[0]);
+        }
+    </script>
+</body>
+
+</html>

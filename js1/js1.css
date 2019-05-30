@@ -10,3 +10,19 @@ p{
     border-radius: 10px;
     float: left;
 }
+button{
+    width: 39%;
+    margin: 5%;
+    padding: 3%;
+    border: 1px solid #ffa500;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 16px;
+    color: #ffa500;
+    outline: none;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #ffa500;
+    color: #fff;
+}

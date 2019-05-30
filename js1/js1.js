@@ -1,9 +1,17 @@
+//变回原来的橙色
+function resetColor() {
+    var box = document.getElementsByClassName('box');
+    for (var i = 0; i < box.length; i++) {
+        box[i].style.backgroundColor = '#ffa500';
+    }
+}
 function setColor() {
-
+    resetColor();
+    //取3个随机数
     var box = document.getElementsByClassName('box');
     var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8];
     var result = [];
-    var ranNum = 9;
+    var ranNum = 3;
     for (var i = 0; i < ranNum; i++) {
         var ran = Math.floor(Math.random() * (arr.length - i))
         // result.push(arr[ran]);
@@ -26,10 +34,23 @@ function setColor() {
         }
         colors.push(color);
     }
-
+    //随机的格子改变随机的颜色
     box[result[0]].style.backgroundColor = colors[0];
     box[result[1]].style.backgroundColor = colors[1];
     box[result[2]].style.backgroundColor = colors[2];
 }
-
-function changeColor() { setInterval(function(){setColor()}, 1000);} 
+var isClick = false;
+var t;
+function changeColor() { 
+    if(isClick){
+        console.log('别点啦');
+    } else {
+    t = setInterval(setColor, 1000);
+    isClick = true;
+    }
+} 
+function stopColor() {
+    clearInterval(t);
+    resetColor();
+    isClick = false;
+}

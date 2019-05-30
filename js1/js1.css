@@ -2,6 +2,10 @@ body,
 p{
     margin: 0;
 }
+.wrap{
+    overflow: hidden;
+    margin-bottom: 5%;
+}
 .box{
     width: 31%;
     padding-bottom: 31%;
@@ -11,8 +15,9 @@ p{
     float: left;
 }
 button{
-    width: 39%;
-    margin: 5%;
+    display: block;
+    width: 90%;
+    margin: 5% auto;
     padding: 3%;
     border: 1px solid #ffa500;
     border-radius: 5px;

@@ -20,11 +20,12 @@ function setColor() {
     }
 
     var colors = [];
+    var diffColors = [];
     //while循环3个颜色
-    while (colors.length < 3) {
+    while (diffColors.length < 3) {
         var color = "#";
         for (var i = 0; i < 3; i++) {
-            var n = Math.round((Math.random() * 255));
+            var n = Math.round((Math.random() * 1));
             if (n < 16) {
                 color += "0";
                 color += n.toString(16);
@@ -33,22 +34,29 @@ function setColor() {
             }
         }
         colors.push(color);
+        console.log(colors);
+        for (m = 1; m < colors.length; m++) {
+            if (colors.indexOf(colors[m] == m)) {
+                diffColors.push(colors[m]);
+            }
+        }
     }
+    console.log(diffColors);
     //随机的格子改变随机的颜色
-    box[result[0]].style.backgroundColor = colors[0];
-    box[result[1]].style.backgroundColor = colors[1];
-    box[result[2]].style.backgroundColor = colors[2];
+    box[result[0]].style.backgroundColor = diffColors[0];
+    box[result[1]].style.backgroundColor = diffColors[1];
+    box[result[2]].style.backgroundColor = diffColors[2];
 }
 var isClick = false;
 var t;
-function changeColor() { 
-    if(isClick){
+function changeColor() {
+    if (isClick) {
         console.log('别点啦');
     } else {
-    t = setInterval(setColor, 1000);
-    isClick = true;
+        t = setInterval(setColor, 1000);
+        isClick = true;
     }
-} 
+}
 function stopColor() {
     clearInterval(t);
     resetColor();

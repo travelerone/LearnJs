@@ -18,11 +18,17 @@
                 <p>杀手<span></span>人</p>
             </div>
             <div></div>
-            <h6>请输入玩家数量<input type="text"><span>玩家数量为4-18</span></h6>
+            <h6>请输入玩家数量<input type="text" value="8" id="allNum" oninput="getAllNum(); value=value.replace(/[^\d]/g,'')"><span>玩家数量为4-18</span></h6>
         </main>
         <footer>
             <button>去发牌</button>
         </footer>
     </div>
+    <script>
+        function getAllNum() {
+            var a = document.getElementById('allNum').value;//通过document.getElementById(“id名”).value来获取value值。
+            console.log(a);
+        }
+    </script>
 </body>
 </html>

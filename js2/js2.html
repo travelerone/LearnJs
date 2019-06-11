@@ -15,20 +15,15 @@
             <h2>玩家配比</h2>
             <div>
                 <p>杀手<span></span>人</p>
-                <p>杀手<span></span>人</p>
+                <p>平民<span></span>人</p>
             </div>
             <div></div>
-            <h6>请输入玩家数量<input type="text" value="8" id="allNum" oninput="getAllNum(); value=value.replace(/[^\d]/g,'')"><span>玩家数量为4-18</span></h6>
+            <h6>请输入玩家数量<input type="text" id="playerNum" value="8" oninput="distribute()"><span>玩家数量为4-18</span></h6>
         </main>
         <footer>
-            <button>去发牌</button>
+            <button onclick="getAllNum()">去发牌</button>
         </footer>
     </div>
-    <script>
-        function getAllNum() {
-            var a = document.getElementById('allNum').value;//通过document.getElementById(“id名”).value来获取value值。
-            console.log(a);
-        }
-    </script>
+    <script src="js2.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
-function getAllNum() {
+function distribute() {
     var allNum = document.getElementById('playerNum').value - 0;
     var killerNum;
+    var civilianNum;
     switch (allNum) {
         case 4:
         case 5:
@@ -27,17 +28,28 @@ function getAllNum() {
         case 18:
             killerNum = 5;
             break;
-        default:
-            alert('请输入正确的玩家数量。')
     }
-    console.log(allNum);
-    function func2() {
-        return allNum;
+    civilianNum = allNum - killerNum;
+    if (killerNum) {
+        document.getElementById('killerNum').innerHTML = killerNum;
+        document.getElementById('civilianNum').innerHTML = civilianNum;
+    } else {
+        document.getElementById('killerNum').innerHTML = '';
+        document.getElementById('civilianNum').innerHTML = '';
     }
-    return func2;
+
 }
-var allNum = getAllNum()();
-console.log(allNum);
-function distribute() {
-    
+function getAllNum() {
+    var allNum = document.getElementById('playerNum').value - 0;
+    if (allNum >= 4 && allNum <= 18) {
+        window.location.href = '../../js3/js3.html';
+    } else {
+        alert('请输入正确的玩家数量。')
+    }
 }
+document.onkeydown = function (event) {
+    var e = event || window.event || arguments.callee.caller.arguments[0];
+    if (e && e.keyCode == 13) { // 按 enter
+        getAllNum()
+    }
+};

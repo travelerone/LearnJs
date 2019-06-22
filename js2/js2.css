@@ -7,3 +7,10 @@
 .font-orange{color: #fab344;}
 p,body,h1,h2,h3,h4,h5,h6{margin: 0;}
 *{box-sizing: border-box;}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}

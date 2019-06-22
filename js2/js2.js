@@ -42,7 +42,7 @@ function distribute() {
 function getAllNum() {
     var allNum = document.getElementById('playerNum').value - 0;
     if (allNum >= 4 && allNum <= 18) {
-        window.location.href = '../../js3/js3.html';
+        window.location.href = '../js3/js3.html';
     } else {
         alert('请输入正确的玩家数量。')
     }

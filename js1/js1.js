@@ -1,4 +1,4 @@
-var N = 9;
+var N = 3;
 //随机选择盒子
 function selectBox() {
     var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8,];

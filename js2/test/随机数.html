@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" Content="text/html; charset=utf-8;">
+    <title>从一个数组中随机取数</title>
+    <meta name="author" content="rainna" />
+    <meta name="keywords" content="rainna's js lib" />
+    <meta name="description" content="js" />
+</head>
+
+<body>
+    <a href="login.html">跳转</a>
+    <script>
+        //count 数组的总长度    randomCount 随机显示的数量 
+        var selRandomNum = function (count, randomCount) {
+            var a = 10;
+            var b = [];
+            for (var i = 0; i < a; i++) {
+                b.push(i);
+            }
+            // console.log(b);
+            var count = count || 10;
+            var randomCount = randomCount || 3;
+
+            var totalArray = [], randomArray = [];
+            for (var i = 0, l = count; i < l; i++) {
+                totalArray.push(i);
+            }
+            // console.log(totalArray);
+            for (var i = 0, l = randomCount; i < l; i++) {
+                var randomIndex = Math.floor(Math.random() * totalArray.length);
+                var selectIndex = totalArray.splice(randomIndex, 1)[0];
+                randomArray.push(selectIndex);
+            }
+            // console.log(totalArray);
+            for (var i=0; i<totalArray.length; i++){
+                b[totalArray[i]] = '平民';
+            }
+            for (var i=0; i<randomArray.length; i++){
+                b[randomArray[i]] = '杀手';
+            }
+            return b;
+        }
+        var x = JSON.stringify(selRandomNum());
+        console.log(x);
+        sessionStorage.setItem('data', x);
+    </script>
+</body>
+
+</html>

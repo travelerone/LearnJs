@@ -63,7 +63,7 @@ var selRandomNum = function () {
     var killerNum = getKillerNum();
     var role = [];
     for (var i = 0; i < allNum; i++) {
-        role.push(i);
+        role.push(i);//得到一个总人数的数组
     }
     var totalArray = [], randomArray = [];
     for (var i = 0; i < allNum; i++) {
@@ -73,12 +73,12 @@ var selRandomNum = function () {
         var randomIndex = Math.floor(Math.random() * allNum);
         var selectIndex = totalArray.splice(randomIndex, 1)[0];
         randomArray.push(selectIndex);
-    }
+    }//随机选取杀手人数为一个数组，另一个数组为剩下的平民数组
     for (var i = 0; i < totalArray.length; i++) {
-        role[totalArray[i]] = '平民';
+        role[totalArray[i]] = '平民';//将平民身份给替换数组中的序号
     }
     for (var i = 0; i < randomArray.length; i++) {
-        role[randomArray[i]] = '杀手';
+        role[randomArray[i]] = '杀手';//将杀手身份替换数组序号
     }
     return role;
 }

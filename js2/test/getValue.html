@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试</title>
+</head>
+
+<body>
+    <input type="text" name="" id="ipt" value="8">
+    <button id="btn" onclick="">按钮</button>
+    <script>
+        var allNum = allNum();
+        function allNum() {
+            var a = document.getElementById('ipt').value - 0;
+            return a;
+        }
+        var killerNum;
+        switch (allNum) {
+                case 4:
+                case 5:
+                    killerNum = 1;
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                killerNum = 2;
+                    break;
+                case 9:
+                case 10:
+                case 11:
+                killerNum = 3;
+                    break;
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                killerNum = 4;
+                    break;
+                case 16:
+                case 17:
+                case 18:
+                killerNum = 5;
+                    break;
+            }
+            var civilianNum = allNum - killerNum;
+        console.log(allNum);
+        console.log(killerNum);
+        console.log(civilianNum);
+    </script>
+</body>
+
+</html>

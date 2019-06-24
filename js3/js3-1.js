@@ -17,11 +17,13 @@ window.onload = function () {
                 n = n + 1;
                 return '查看' + x + '号身份';
             });
-        } else {
+        } else if (x == role.length) {
             $('#btn').text(function () {
+                x = x + 1;
                 return '法官查看';
             });
+        } else if (x == (role.length + 1)) {
+            window.location.href = 'js3-2.html';
         }
-        // $('#spid').text('1');
     });
 }

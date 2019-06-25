@@ -26,22 +26,24 @@
                 onFreeze: function () { console.log('I froze') }
             }
         });
-        function melt(){
-            if(fsm.is('solid')){
-                fsm.melt();
-                alert("我是水");
-            } else{
-                alert('已经很水了');
-            }
-        }
-        function freeze(){
-            if(fsm.is('liquid')){
-                fsm.freeze();
-                alert("我是冰");
-            } else{
-                alert('已经很冰了');
-            }
-        }
+        fsm.melt();
+        console.log(fsm.state);
+        // function melt(){
+        //     if(fsm.is('solid')){
+        //         fsm.melt();
+        //         alert("我是水");
+        //     } else{
+        //         alert('已经很水了');
+        //     }
+        // }
+        // function freeze(){
+        //     if(fsm.is('liquid')){
+        //         fsm.freeze();
+        //         alert("我是冰");
+        //     } else{
+        //         alert('已经很冰了');
+        //     }
+        // }
     </script>
 </body>
 

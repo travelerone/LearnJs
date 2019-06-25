@@ -1,17 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>法官台本</title>
-    <script src="js3-3.js"></script>
+    <link rel="stylesheet" href="js3-3.css">
 </head>
+
 <body>
-    <p></p>
-    <div onclick="window.location.href= 'js3-4.html'">杀手杀人</div>
-    <div>亡灵发表遗言</div>
-    <div>玩家依次发言</div>
-    <div>全民投票</div>
+    <div class="judge">
+        <header class="header">
+            <img src="../js3/i/back-icon.png" alt="" class="img1">
+            <span>法官台本</span>
+            <img src="../js3/i/close.png" alt="" class="img2">
+        </header>
+        <main class="main">
+            <div class="day">第一天</div>
+            <div class="step">
+                <div class="div1">杀手杀人</div>
+                <div>5号被杀手杀死，真实身份是平民</div>
+                <div class="div2">亡灵发表遗言</div>
+                <div class="div3">玩家依次发言</div>
+                <div class="div4">全民投票</div>
+
+            </div>
+        </main>
+        <footer class="footer">
+            <button class="game-over">结束游戏</button>
+            <button class="daily">法官日志</button>
+        </footer>
+    </div>
+    <div class="killing">
+        <header class="header">
+            <img src="../js3/i/back-icon.png" alt="" class="img1">
+            <span>杀手杀人</span>
+            <img src="../js3/i/close.png" alt="" class="img2">
+        </header>
+        <p class="tip1">杀手请睁眼，杀手请选择要杀的对象</p>
+        <p class="tip2">点击下方玩家头像，对被杀的玩家进行标记</p>
+        <main class="main2">
+            
+        </main>
+        <footer class="bar">
+            <button class="to-die">投死</button>
+        </footer>
+    </div>
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+    <script src='../js3/test/state-machine.js'></script>
+    <script src="js3-3.js"></script>
 </body>
+
 </html>

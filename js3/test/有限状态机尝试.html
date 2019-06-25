@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>尝试</title>
+    <script src='state-machine.js'></script>
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <main>
+        <label class="number" for="input1">
+            <input type="radio" name="role" value="1" id="input1">
+            <span class="identity">平民</span>
+            <p class="order">1</p>
+        </label><label class="number" for="input2">
+            <input type="radio" name="role" value="2" id="input2">
+            <span class="identity">平民</span>
+            <p class="order">2</p>
+        </label><label class="number" for="input3">
+            <input type="radio" name="role" value="3" id="input3">
+            <span class="identity">杀手</span>
+            <p class="order">3</p>
+        </label><label class="number" for="input4">
+            <input type="radio" name="role" value="4" id="input4">
+            <span class="identity">平民</span>
+            <p class="order">4</p>
+        </label>
+        <button>点击</button>
+    </main>
+    <script>
+        // var peopleState = new StateMachine({
+        //     init: 'alive',
+        //     transitions: [
+        //         { name: 'kill', from: 'alive', to: 'dead' },
+        //         { name: 'vote', from: 'alive', to: 'dead' }
+        //     ],
+        //     methods: {
+        //         onKilled: function () { console.log('我被杀手杀了') },
+        //         onVoted: function () { console.log('我被投死了') }
+        //     }
+        // });
+        $('button').click(function () {
+            var n = $('input[type = "radio"]:checked').val();
+            var str = $('input[type = "radio"]:checked').siblings().text();
+            var reg = RegExp(/\u6740/);//杀这个字
+            if (reg.test(str)) {
+                console.log("我是杀手");
+            } else if (personArr[n - 1].is('alive')) {
+                personArr[n - 1].kill();
+                console.log(n + '被杀了');
+            } else {
+                console.log('我已经死了，不能再杀我了');
+            }
+        });
+        var personArr = [];
+        for (var i = 0; i < 10; i++) {
+            personArr.push(new StateMachine({
+                init: 'alive',
+                transitions: [
+                    { name: 'kill', from: 'alive', to: 'dead' },
+                    { name: 'vote', from: 'alive', to: 'dead' }
+                ],
+                methods: {
+                    onKilled: function () { console.log('我被杀手杀了') },
+                    onVoted: function () { console.log('我被投死了') }
+                }
+            }));
+        }
+    </script>
+</body>
+
+</html>

@@ -32,17 +32,17 @@
         <button>点击</button>
     </main>
     <script>
-        // var peopleState = new StateMachine({
-        //     init: 'alive',
-        //     transitions: [
-        //         { name: 'kill', from: 'alive', to: 'dead' },
-        //         { name: 'vote', from: 'alive', to: 'dead' }
-        //     ],
-        //     methods: {
-        //         onKilled: function () { console.log('我被杀手杀了') },
-        //         onVoted: function () { console.log('我被投死了') }
-        //     }
-        // });
+        var peopleState = new StateMachine({
+            init: 'alive',
+            transitions: [
+                { name: 'kill', from: 'alive', to: 'dead' },
+                { name: 'vote', from: 'alive', to: 'dead' }
+            ],
+            methods: {
+                onKilled: function () { console.log('我被杀手杀了') },
+                onVoted: function () { console.log('我被投死了') }
+            }
+        });
         $('button').click(function () {
             var n = $('input[type = "radio"]:checked').val();
             var str = $('input[type = "radio"]:checked').siblings().text();

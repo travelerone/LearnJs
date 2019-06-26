@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>游戏天数</title>
+    <link rel="stylesheet" href="../js3-3.css">
+</head>
+
+<body>
+    <button>生成</button>
+    <main></main>
+
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+    <script src='state-machine.js'></script>
+    <script>
+        var step = new StateMachine({
+            init: 'notstarted',
+            transitions: [
+                { name: 'clickone', from: 'notstarted', to: 'onefinished' },
+                { name: 'clicktwo', from: 'onefinished', to: 'twofinished' },
+                { name: 'clickthree', from: 'twofinished', to: 'threefinished' },
+                { name: 'clickfour', from: 'threefinished', to: 'notstarted' }
+            ],
+            methods: {
+                onClickone: function () { console.log('完成第一步') },
+                onClicktwo: function () { console.log('完成第二步') },
+                onClickthree: function () { console.log('完成第三步') },
+                onClickfour: function () { console.log('完成第四步') }
+            }
+        });
+        var n = 0;
+        var day = n + 1;
+        function createDay() {
+            $('main').append(function () {
+                return `<div class="day"></div>
+    <div class="step">
+        <div class="div1">杀手杀人</div>
+        <div class="div2">亡灵发表遗言</div>
+        <div class="div3">玩家依次发言</div>
+        <div class="div4">全民投票</div>
+    </div>`;
+            });
+            $('.step').eq(n).attr("id", function () {
+                return "day" + day;
+            });
+            // $('.step').eq(n - 1).click(function () {
+            //     alert('别点啦');
+            // });
+            $('.day').eq(n).text(function () {
+                return '第' + day + '天';
+            });
+            // var x = '3号杀手被杀死，真实身份是平民';
+            // $('.step').last().children('.div1').after(function () {
+            //     return x;
+            // });
+            day = day + 1;
+            n = n + 1;
+        }
+        createDay();
+        $('main').on('click','.div1',function () {
+            if (step.is('notstarted')) {
+                step.clickone();
+                $(this).css('background-color', '#83b09a');
+            } else {
+                console.log('请按顺序操作');
+            }
+        });
+        $('.div2').click(function () {
+            if (step.is('onefinished')) {
+                step.clicktwo();
+                $(this).css('background-color', '#83b09a');
+            } else {
+                console.log('请按顺序操作');
+            }
+        });
+        $('.div3').click(function () {
+            if (step.is('twofinished')) {
+                step.clickthree();
+                $(this).css('background-color', '#83b09a');
+            } else {
+                console.log('请按顺序操作');
+            }
+        });
+        $('.div4').click(function () {
+            if (step.is('threefinished')) {
+                step.clickfour();
+                $(this).css('background-color', '#83b09a');
+                createDay();
+            } else {
+                console.log('请按顺序操作');
+            }
+        });
+        $('button').click(function(){
+            createDay();
+        });
+    </script>
+</body>
+
+</html>

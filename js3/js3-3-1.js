@@ -1,6 +1,10 @@
 //从之前页面传递数组
 var role = JSON.parse(sessionStorage.getItem('data'));
 var allNum = role.length;
+var killerNum = JSON.parse(sessionStorage.getItem('killer'));
+var peopleNum = allNum - killerNum;
+// console.log(killerNum);
+// console.log(peopleNum);
 // console.log(role);
 
 //被杀人和被投人统计
@@ -139,6 +143,8 @@ $('.main').on('click', '.div1', function () {
         toKilling();
         step.clickone();
         $(this).css('background-color', '#83b09a');
+        //添加属性pointer-events: none;
+        $(this).css('pointer-events', 'none');
     } else {
         console.log('请按顺序操作');
     }
@@ -167,13 +173,13 @@ $('.main').on('click', '.div4', function () {
         toVoting();
         step.clickfour();
         $(this).css('background-color', '#83b09a');
-        var totalday = $('.day-num').length-1;
+        var totalday = $('.day-num').length - 1;
         console.log(totalday);
-        $('.step').eq(totalday).click(function(){
-            alert('请按顺序操作');
-        });
-        $('.step').eq(totalday).css('display','none');
-        $('.day').eq(totalday).click(function(){
+        // $('.step').eq(totalday).click(function(){
+        //     alert('请按顺序操作');
+        // });
+        $('.step').eq(totalday).css('display', 'none');
+        $('.day').eq(totalday).click(function () {
             $('.step').eq(totalday).toggle();
         });
     } else {
@@ -200,6 +206,7 @@ $('.to-die').click(function () {
             killedMen.push(killed);
             //改变为死亡的颜色
             $('.alive').eq(n - 1).css('background-color', '#83b09a');
+            peopleNum = peopleNum - 1;
             toJudge();
         } else {
             alert('我已经死了，不能再杀我了');
@@ -225,8 +232,10 @@ $('.to-vote').click(function () {
         votedMen.push(killerV);
         //改变为死亡的颜色
         $('.alive').eq(n - 1).css('background-color', '#83b09a');
-        toJudge();
-        createDay();
+        // toJudge();
+        //杀手人数减一
+        killerNum = killerNum - 1;
+        // createDay();
     } else if (personArr[n - 1].is('alive')) {
         personArr[n - 1].kill();
         //在法官台本下面显示信息
@@ -236,9 +245,27 @@ $('.to-vote').click(function () {
         votedMen.push(peopleV);
         //改变为死亡的颜色
         $('.alive').eq(n - 1).css('background-color', '#83b09a');
-        toJudge();
-        createDay();
+        //平民人数减一
+        peopleNum = peopleNum - 1;
+        // toJudge();
+        // createDay();
     } else {
         alert('我已经死了，不能再杀我了');
+    }
+    console.log(killedMen);
+    console.log(votedMen);
+    if (killerNum == 0 || (peopleNum - 1) <= killerNum) {
+        var kNum = JSON.stringify(killerNum);
+        var pNum = JSON.stringify(peopleNum);
+        var kMen = JSON.stringify(killedMen);
+        var vMen = JSON.stringify(votedMen);
+        sessionStorage.setItem('kNum', kNum);
+        sessionStorage.setItem('pNum', pNum);
+        sessionStorage.setItem('kMen', kMen);
+        sessionStorage.setItem('vMen', vMen);
+        window.location.href = 'js3-4.html';
+    } else {
+        toJudge();
+        createDay();
     }
 });

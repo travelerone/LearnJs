@@ -1,42 +1,32 @@
-window.onload = function () {
-    var role = JSON.parse(sessionStorage.getItem('data'));
-    var allNum = role.length;
-    for (var i = 0; i < allNum; i++) {
-        var txt = `<label>
-        <div class="number">
-            <div class="card">
-                <p class="alive">水民</p>
-                <p class="serial">1号</p>
-            </div>
-            <input type="radio" name="role">
-            <div class="knife">
-                <img src="../js3/i/knife.png" alt="">
-            </div>
-        </div>
-    </label>`;
-        $('.main2').append(txt);
-        $('.alive').eq(i).text(function () {
-            return role[i];
-        });
-        $('.serial').eq(i).text(function () {
-            return i + 1;
-        });
-        //添加value;
-        $('input').eq(i).attr("value", function () {
-            return i + 1;
-        });
-        $('input').eq(i).attr("id", function () {
-            return "input" + (i + 1);
-        });
-        $('label').eq(i).attr("for", function () {
-            return "input" + (i + 1);
-        });
-    }
-    $('#btn').click(function () {
-        var killed = $('input[type = "radio"]:checked').val();
-        console.log(killed);
+var killerNum = JSON.parse(sessionStorage.getItem('kNum'));//剩余杀手人数
+var peopleNum = JSON.parse(sessionStorage.getItem('pNum'));//剩余平民人数
+var killedMen = JSON.parse(sessionStorage.getItem('kMen'));//晚上被杀信息
+var votedMen = JSON.parse(sessionStorage.getItem('vMen'));//白天被投信息
+console.log(killedMen);
+
+//增加对应天数
+var dayNum = killedMen.length;
+console.log(dayNum);
+$('#killer').text(killerNum);
+$('#people').text(peopleNum);
+for (var i = 0; i < dayNum; i++) {
+    var txt = `<div class="info">
+    <p>第<span class="allday"></span>天</p>
+    <p>黑夜：<span class="killinginfo"></span></p>
+    <p>白天：<span class="votinginfo"></span></p>
+</div>`;
+    $('main').append(txt);
+    $('.allday').eq(i).text(function () {
+        return i + 1;
+    });
+    $('.killinginfo').eq(i).text(function () {
+        return killedMen[i];
+    });
+    $('.votinginfo').eq(i).text(function () {
+        return votedMen[i];
     });
 }
-
-
-
+$('.to-die').click(function(){
+    // sessionStorage.clear()
+    window.location.href = 'js2.html';
+});

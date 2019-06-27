@@ -46,6 +46,9 @@ function distribute() {
     var allNum = getAllNum();
     if (allNum >= 4 && allNum <= 18) {
         var role = JSON.stringify(selRandomNum());
+        var killerNum = JSON.stringify(getKillerNum());
+        // console.log(killerNum);
+        sessionStorage.setItem('killer', killerNum);
         sessionStorage.setItem('data', role);
         window.location.href = '../js3/js3-1.html';
     } else {

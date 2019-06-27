@@ -6,7 +6,7 @@ p {
 body {
     background-color: #f0f0f0;
     /* background-color: #29bde0; */
-    padding-bottom: 50px;
+    padding-bottom: 70px;
 }
 
 .header {
@@ -18,7 +18,7 @@ body {
     color: #fff;
 }
 
-img.img1 {
+.img1 {
     width: 12px;
     margin: 10px;
 }
@@ -154,4 +154,30 @@ button.to-vote {
 }
 .killing{
     display: none;
+}
+img.victory {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    padding: 30px;
+}
+.bg{
+    background-color: #29bde0;
+}
+.info{
+    background: #fff;
+    width: 95%;
+    margin: 0 auto;
+    border-bottom: 1px solid #999;
+}
+.main3 p{
+    padding: 0 5%;
+    line-height: 1.5;
+}
+.left {
+    color: #fff;
+    padding: 0 3%;
+}
+.home{
+    width: 20px;
 }

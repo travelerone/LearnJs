@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
-    <title>杀手杀人</title>
-    <script src="js3-4.js"></script>
-    <style>
-        
-    </style>
+    <title>游戏结果</title>
+    <link rel="stylesheet" href="js3-3.css">
 </head>
-<body>
-    <header>
-        <img src="" alt="">
-        <span>杀手杀人</span>
-        <img src="" alt="">
+
+<body class="bg">
+    <header class="header">
+        <img src="../js3/i/home.png" alt="" class="img1 home">
+        <span>游戏结果</span>
+        <img src="../js3/i/close.png" alt="" class="img2">
     </header>
-    <main>
-        
+    <main class="main3">
+        <img src="../js3/i/victory.png" alt="" class="victory">
+        <div class="left">
+            <p>剩余玩家：</p>
+            <p>
+                <span>杀手<span id="killer"></span>人</span> <span>平民<span id="people"></span>人</span>
+            </p>
+        </div>
     </main>
-    <button id="btn">确定</button>
+    <footer class="bar">
+        <button class="to-die">再来一次</button>
+    </footer>
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js3-4.js"></script>
 </body>
+
 </html>

@@ -135,7 +135,7 @@ input[type="range"]::-webkit-slider-thumb {
     /*设置滑块的阴影*/
     width: 2.6rem;
     height: 1.6rem;
-    background: url("../js3/i/slider.png");
+    background: url("../img/slider.png");
     background-size: cover;
     /*//这几个是设置滑块的样式*/
 }
@@ -146,7 +146,7 @@ input[type="range"]::-webkit-slider-thumb {
     outline: none;
     border: none;
     cursor: pointer;
-    background: url("../js3/i/sub.png");
+    background: url("../img/sub.png");
     background-size: 100%;
     width: 1.8rem;
     height: 1.8rem;
@@ -157,7 +157,7 @@ input[type="range"]::-webkit-slider-thumb {
     outline: none;
     border: none;
     cursor: pointer;
-    background: url("../js3/i/add.png") no-repeat;
+    background: url("../img/add.png") no-repeat;
     background-size: 100%;
     width: 1.8rem;
     height: 1.8rem;

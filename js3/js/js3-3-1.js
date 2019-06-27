@@ -112,7 +112,7 @@ for (var i = 0; i < allNum; i++) {
             </div>
             <input type="radio" name="role" id="div1">
             <div class="knife">
-                <img src="../js3/i/knife.png" alt="">
+                <img src="./img/knife.png" alt="">
             </div>
         </div>
     </label>`;

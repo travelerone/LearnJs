@@ -50,7 +50,7 @@ function distribute() {
         // console.log(killerNum);
         sessionStorage.setItem('killer', killerNum);
         sessionStorage.setItem('data', role);
-        window.location.href = '../js3/js3-1.html';
+        window.location.href = 'js3-1.html';
     } else {
         alert('请输入正确的玩家数量。')
     }

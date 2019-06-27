@@ -91,6 +91,7 @@ var osliderBlock = document.getElementById("slider");//滑块的值
 function moveChange() {// 滑块的值改变，运行这个函数
     oPlayerNum.value=osliderBlock.value;
     //滑块的值改变的话，滑块的值赋值给方框，实现动态变化
+    show();
 }
 function less() {
     oPlayerNum.value--;
@@ -102,6 +103,7 @@ function less() {
     }
     else {
         osliderBlock.value=oPlayerNum.value;// 将玩家人数赋值给滑轮的值
+        show();
     }
 }
 function plus() {
@@ -114,5 +116,6 @@ function plus() {
     }
     else {
         osliderBlock.value=oPlayerNum.value;// 将玩家人数赋值给滑轮的值
+        show()
     }
 }

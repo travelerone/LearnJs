@@ -94,7 +94,6 @@ p.tip2 {
 }
 
 .main2 {
-    height: 70vh;
     overflow: auto;
 }
 
@@ -106,15 +105,15 @@ p.tip2 {
 }
 
 .card {
-    width: 68px;
-    height: 68px;
+    width: 80px;
+    height: 80px;
     border: 3px solid #fff;
     cursor: pointer;
 }
 
 .alive {
     background-color: #f5c97b;
-    line-height: 50px;
+    line-height: 62px;
 }
 
 .serial {
@@ -138,6 +137,7 @@ input[type="radio"]:checked + .knife{
     display: block;
 }
 .bar{
+    background: #28bee07a;
     box-sizing: border-box;
     width: 100%;
     padding: 10px;

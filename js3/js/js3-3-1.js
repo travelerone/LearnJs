@@ -5,7 +5,7 @@ var killerNum = JSON.parse(sessionStorage.getItem('killer'));
 var peopleNum = allNum - killerNum;
 // console.log(killerNum);
 // console.log(peopleNum);
-// console.log(role);
+console.log(role);
 
 //被杀人和被投人统计
 var killedMen = [];
@@ -156,7 +156,7 @@ $('.main').on('click', '.div2', function () {
         alert('亡灵发表遗言');
         $(this).css('background-color', '#83b09a');
     } else {
-        console.log('请按顺序操作');
+       alert('请按顺序操作');
     }
 });
 //第三步
@@ -166,7 +166,7 @@ $('.main').on('click', '.div3', function () {
         alert('玩家依次发言');
         $(this).css('background-color', '#83b09a');
     } else {
-        console.log('请按顺序操作');
+       alert('请按顺序操作');
     }
 });
 //第四步
@@ -176,7 +176,7 @@ $('.main').on('click', '.div4', function () {
         step.clickfour();
         $(this).css('background-color', '#83b09a');
         var totalday = $('.day-num').length - 1;
-        console.log(totalday);
+        // console.log(totalday);
         // $('.step').eq(totalday).click(function(){
         //     alert('请按顺序操作');
         // });
@@ -185,7 +185,7 @@ $('.main').on('click', '.div4', function () {
             $('.step').eq(totalday).toggle();
         });
     } else {
-        console.log('请按顺序操作');
+        alert('请按顺序操作');
     }
 });
 
@@ -197,10 +197,10 @@ $('.to-die').click(function () {
     var killed = n + '号被杀死了，真实身份是平民';
     if (n) {
         if (reg.test(str)) {
-            alert("我是杀手");
+            alert("我是杀手啊兄dei");
         } else if (personArr[n - 1].is('alive')) {
             personArr[n - 1].kill();
-            // console.log(killed);
+            console.log(killed);
             //在法官台本下面显示信息
             $('.step').last().children('.div1').after(function () {
                 return killed;
@@ -211,7 +211,7 @@ $('.to-die').click(function () {
             peopleNum = peopleNum - 1;
             toJudge();
         } else {
-            alert('我已经死了，不能再杀我了');
+            alert('我已经死了啊兄dei');
         }
     } else {
         alert('请选择一个平民');
@@ -225,37 +225,40 @@ $('.to-vote').click(function () {
     var reg = RegExp(/\u6740/);//杀这个字
     var peopleV = n + '号被投死了，真实身份是平民';
     var killerV = n + '号被投死了，真实身份是杀手';
-    if (reg.test(str) && personArr[n - 1].is('alive')) {
-        personArr[n - 1].kill();
+
+    if (reg.test(str) && personArr[n - 1].is('alive')) {//如果选到杀手
+        personArr[n - 1].kill(); //改变状态
         //在法官台本下面显示信息
         $('.step').last().children('.div3').after(function () {
             return killerV;
         });
-        votedMen.push(killerV);
+        console.log(killerV);
+        votedMen.push(killerV);//传递信息
         //改变为死亡的颜色
         $('.alive').eq(n - 1).css('background-color', '#83b09a');
-        // toJudge();
+        toJudge();
         //杀手人数减一
         killerNum = killerNum - 1;
-        // createDay();
+        createDay();
     } else if (personArr[n - 1].is('alive')) {
         personArr[n - 1].kill();
         //在法官台本下面显示信息
         $('.step').last().children('.div4').after(function () {
             return peopleV;
         });
+        console.log(peopleV);
         votedMen.push(peopleV);
         //改变为死亡的颜色
         $('.alive').eq(n - 1).css('background-color', '#83b09a');
         //平民人数减一
         peopleNum = peopleNum - 1;
-        // toJudge();
-        // createDay();
+        toJudge();
+        createDay();
     } else {
-        alert('我已经死了，不能再杀我了');
+        alert('我已经死了啊兄弟');
     }
-    console.log(killedMen);
-    console.log(votedMen);
+    // console.log(killedMen);
+    // console.log(votedMen);
     if (killerNum == 0 || (peopleNum - 1) <= killerNum) {
         var kNum = JSON.stringify(killerNum);
         var pNum = JSON.stringify(peopleNum);
@@ -266,7 +269,6 @@ $('.to-vote').click(function () {
         sessionStorage.setItem('kMen', kMen);
         sessionStorage.setItem('vMen', vMen);
         window.location.href = 'js3-4.html';
-    } else {
         toJudge();
         createDay();
     }
@@ -278,7 +280,7 @@ $('.img1').click(function(){
 $('.game-over').click(function(){
     var r = confirm('现在退出会扣除游戏币哦，确定不玩了吗？');
     if(r == true){
-        window.location.href = 'js3-4.html';
+        window.location.href = 'js2.html';
     }
 });
 $('.daily').click(function(){

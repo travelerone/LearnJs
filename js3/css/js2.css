@@ -19,7 +19,11 @@ header {
     font-size: 17px;
     color: #fff;
 }
-
+.back{
+    height: 30px;
+    margin: 10px;
+    cursor: pointer;
+}
 .block {
     margin: 16px;
 }

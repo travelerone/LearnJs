@@ -3,20 +3,28 @@ window.onload = function () {
     var allNum = role.length;
     console.log(allNum);
     for (var i = 0; i < role.length; i++) {
-        var txt = `<div>
-            <p class = "identity"></p>
-            <p class = "order"></p>
-        </div>`;
+        var txt = `<label for="div1">
+        <div class="number">
+            <div class="card">
+                <p class="alive"></p>
+                <p class="serial"></p>
+            </div>
+            <input type="radio" name="role" id="div1">
+        </div>
+    </label>`;
         console.log(txt);
         $('main').append(txt);
-        $('.identity').eq(i).text(function () {
+        $('.alive').eq(i).text(function () {
             return role[i];
         });
-        $('.order').eq(i).text(function () {
+        $('.serial').eq(i).text(function () {
             return i + 1;
         });
     }
-}
-function startBtn() {
-    window.location.href = 'js3-3.html';
+    $('.to-die').click(function(){
+        window.location.href = 'js3-3.html';
+    });
+    $('.img1').click(function(){
+        history.back();
+    });
 }

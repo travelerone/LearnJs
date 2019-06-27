@@ -21,11 +21,13 @@ body {
 .img1 {
     width: 12px;
     margin: 10px;
+    cursor: pointer;
 }
 
 img.img2 {
     width: 16px;
     margin: 10px;
+    cursor: pointer;
 }
 
 .main {
@@ -50,6 +52,7 @@ img.img2 {
     background-color: #29bde0;
     padding: 10px;
     margin: 20px 50px;
+    cursor: pointer;
 }
 
 .step {
@@ -76,6 +79,7 @@ img.img2 {
     line-height: 43px;
     color: #fff;
     background-color: #fbb435;
+    cursor: pointer;
 }
 
 p.tip1 {
@@ -105,6 +109,7 @@ p.tip2 {
     width: 68px;
     height: 68px;
     border: 3px solid #fff;
+    cursor: pointer;
 }
 
 .alive {
@@ -135,16 +140,17 @@ input[type="radio"]:checked + .knife{
 .bar{
     box-sizing: border-box;
     width: 100%;
-    padding: 30px;
+    padding: 10px;
     position: fixed;
     bottom: 0px;
 }
 button.to-die,
 button.to-vote {
     width: 100%;
-    height: 30px;
+    height: 50px;
     color: #fff;
     background: #fbb435;
+    cursor: pointer;
 }
 .to-vote{
     display: none;

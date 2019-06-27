@@ -153,6 +153,7 @@ $('.main').on('click', '.div1', function () {
 $('.main').on('click', '.div2', function () {
     if (step.is('onefinished')) {
         step.clicktwo();
+        alert('亡灵发表遗言');
         $(this).css('background-color', '#83b09a');
     } else {
         console.log('请按顺序操作');
@@ -162,6 +163,7 @@ $('.main').on('click', '.div2', function () {
 $('.main').on('click', '.div3', function () {
     if (step.is('twofinished')) {
         step.clickthree();
+        alert('玩家依次发言');
         $(this).css('background-color', '#83b09a');
     } else {
         console.log('请按顺序操作');
@@ -268,4 +270,17 @@ $('.to-vote').click(function () {
         toJudge();
         createDay();
     }
+});
+//返回能点击
+$('.img1').click(function(){
+    history.back();
+});
+$('.game-over').click(function(){
+    var r = confirm('现在退出会扣除游戏币哦，确定不玩了吗？');
+    if(r == true){
+        window.location.href = 'js3-4.html';
+    }
+});
+$('.daily').click(function(){
+    history.back();
 });

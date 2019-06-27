@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +8,33 @@
     <title>js2</title>
     <link rel="stylesheet" href="js2.css">
 </head>
+
 <body>
     <div>
         <header>
-            <a href=""><img src="" alt=""></a>
         </header>
         <main>
-            <h2>玩家配比</h2>
-            <div>
+            <p class="block">玩家配比</p>
+            <div class="block">
                 <p>杀手<span id="killerNum">1</span>人</p>
                 <p>平民<span id="civilianNum">3</span>人</p>
             </div>
-            <div></div>
-            <h6>请输入玩家数量<input type="number" id="playerNum" value="4" oninput="show()" min="4" max="18" class="num-input"><span>玩家数量为4-18</span></h6>
+            <div class="block">
+                <p>请输入玩家数量<input type="number" id="playerNum" value="8" onblur="show()" min="4" max="18"
+                        class="num-input"></p>
+                <p>玩家数量为4-18</p>
+            </div>
+                <p class="block slider-block">
+                    <button class="btn-sub" onclick="less()"></button>
+                    <input type="range" name="points" min="4" max="18" step="1" id="slider" value="8" onchange="moveChange()">
+                    <button class="btn-add" onclick="plus()"></button>
+                </p>
         </main>
         <footer>
-            <button onclick="distribute()">去发牌</button>
+            <button onclick="distribute()" class="btn">去发牌</button>
         </footer>
     </div>
     <script src="js2.js"></script>
 </body>
+
 </html>

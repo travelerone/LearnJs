@@ -72,6 +72,8 @@ img.img2 {
 
 .game-over,
 .daily {
+    outline: none;
+    border: none;
     text-align: center;
     width: 42.5%;
     height: 43px;
@@ -146,6 +148,8 @@ input[type="radio"]:checked + .knife{
 }
 button.to-die,
 button.to-vote {
+    border: none;
+    outline: none;
     width: 100%;
     height: 50px;
     color: #fff;

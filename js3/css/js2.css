@@ -29,6 +29,8 @@ header {
 }
 
 button {
+    outline: none;
+    border: none;
     height: 50px;
     background: #fab344;
     color: #fff;

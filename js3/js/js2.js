@@ -37,6 +37,7 @@ function show() {
     if (killerNum) {
         document.getElementById('killerNum').innerHTML = killerNum;
         document.getElementById('civilianNum').innerHTML = civilianNum;
+        osliderBlock.value = allNum;
     } else {
         document.getElementById('killerNum').innerHTML = '';
         document.getElementById('civilianNum').innerHTML = '';

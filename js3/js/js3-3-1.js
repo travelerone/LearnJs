@@ -58,6 +58,7 @@ function toKilling() {
     $('.tip2').text('点击下方玩家头像，对被杀的玩家进行标记');
     $('.to-die').css('display', 'block');
     $('.to-vote').css('display', 'none');
+    $('.to-game').css('display', 'none');
 }
 //转到法官页面
 function toJudge() {
@@ -74,6 +75,7 @@ function toVoting() {
     $('.tip1').text('发言讨论结束，大家请投票');
     $('.tip2').text('点击投票数最多的人的头像');
     $('.to-die').css('display', 'none');
+    $('.to-game').css('display', 'none');
     $('.to-vote').css('display', 'block');
 }
 //增加天数
@@ -117,9 +119,11 @@ for (var i = 0; i < allNum; i++) {
         </div>
     </label>`;
     $('.main2').append(txt);
+    //显示是水民还是杀手
     $('.alive').eq(i).text(function () {
         return role[i];
     });
+    //显示编号
     $('.serial').eq(i).text(function () {
         return i + 1;
     });
@@ -127,9 +131,11 @@ for (var i = 0; i < allNum; i++) {
     $('input').eq(i).attr("value", function () {
         return i + 1;
     });
+    //添加id
     $('input').eq(i).attr("id", function () {
         return "input" + (i + 1);
     });
+    //添加for属性值和id相同
     $('label').eq(i).attr("for", function () {
         return "input" + (i + 1);
     });
@@ -229,7 +235,7 @@ $('.to-vote').click(function () {
     if (reg.test(str) && personArr[n - 1].is('alive')) {//如果选到杀手
         personArr[n - 1].kill(); //改变状态
         //在法官台本下面显示信息
-        $('.step').last().children('.div3').after(function () {
+        $('.step').last().children('.div4').after(function () {
             return killerV;
         });
         console.log(killerV);
@@ -284,5 +290,23 @@ $('.game-over').click(function(){
     }
 });
 $('.daily').click(function(){
-    history.back();
+    toDaily();
 });
+
+//转到法官日志
+function toDaily() {
+    $('.judge').css('display', 'none');
+    $('.killing').css('display', 'block');
+    $('body').css('background-color', '#29bde0');
+    $('.vod').text('法官日志');
+    $('.tip1').remove();
+    $('.tip2').remove();
+    $('.to-die').css('display', 'none');
+    $('.to-vote').css('display', 'none');
+    $('.to-game').css('display', 'block');
+    $('.knife img').css('display', 'none');
+}
+$('.to-game').click(function(){
+	toJudge();
+	$('.knife img').css('display', 'block');
+})

@@ -6,18 +6,30 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<title>登录</title>
-		<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/js5.css" />
 	</head>
 
-	<body>
-		<form id="login">
-			<input type="text" name="name" id="txt" value="" />
-			<input type="password" name="pwd" id="pwd" value="" />
-			<p id="msg"></p>
-			<button type="submit" id="btn">登录</button>
+	<body class="text-center bg-img">
+		<form id="login" class="form-signin">
+			<div class="login-circle-img"></div>
+			<div class="form-group">
+				<input type="text" name="name" id="txt" value="" class="form-control pd-left-50 input-lg" />
+				<div class="login-user-icon"></div>
+			</div>
+			<div class="form-group">
+				<input type="password" name="pwd" id="pwd" value="" class="form-control pd-left-50 input-lg" />
+				<div class="login-psd-icon"></div>
+			</div>
+			<p id="msg" class="msg"></p>
+			<button type="submit" id="btn" class="btn btn-block btn-submit btn-primary">登录</button>
 		</form>
-		<script src="js/js5-jquery.js"></script>	
-		<!--<script src="js/js5.js"></script>-->
+
+		<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<!--<script src="js/js5-jquery.js"></script>-->
+		<script src="js/js5.js"></script>
 	</body>
 
 </html>

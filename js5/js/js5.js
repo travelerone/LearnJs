@@ -29,7 +29,7 @@ oBtn.onclick = function(event) {
 					}, 5000);
 				}
 			} else {
-				console.error(xhr.statusText);
+				console.error(xmlhttp.statusText);
 			}
 		}
 	};

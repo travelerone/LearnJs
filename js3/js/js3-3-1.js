@@ -182,10 +182,6 @@ $('.main').on('click', '.div4', function () {
         step.clickfour();
         $(this).css('background-color', '#83b09a');
         var totalday = $('.day-num').length - 1;
-        // console.log(totalday);
-        // $('.step').eq(totalday).click(function(){
-        //     alert('请按顺序操作');
-        // });
         $('.step').eq(totalday).css('display', 'none');
         $('.day').eq(totalday).click(function () {
             $('.step').eq(totalday).toggle();

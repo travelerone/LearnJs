@@ -8,7 +8,8 @@ myApp.config(function($urlRouterProvider, $httpProvider){
     //判断用户是否登录
     if(!window.sessionStorage['userInfo']){
         $urlRouterProvider.otherwise('/login');
-    } else {
+    } 
+    else {
         $urlRouterProvider.otherwise('/dashboard')
     }
 });

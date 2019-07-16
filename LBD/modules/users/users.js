@@ -14,39 +14,32 @@ myApp.config(function($stateProvider){
 });
 
 //Factories
-myApp.factory('userServices', ['$http', function($http){
-    var factoryDefinitions = {
-      login: function(loginReq){
-          return $http.post('/carrots-admin-ajax/a/login', loginReq)
-          .success(function(data){return data;});
-      },
-      logout: function(logoutReq){
-          return $http.post('/carrots-admin-ajax/a/logout', logoutReq)
-          .success(function(data){return data;});
-      }
-    };
-    return factoryDefinitions;
-}]);
+myApp.factory('loginService', function ($http) {
+        return {
+            login: function (params) {
+                return $http.post('/carrots-admin-ajax/a/login', params);
+            }
+        }
+    });
 
 //Controllers
 myApp.controller('loginController', 
                  ['$scope',
-                  'userServices',
+                  "loginService",
                   '$location',
                   '$rootScope', 
-function($scope, userServices, $location, $rootScope){
-    var a = new JSON;
-        $scope.login = a;
+function($scope,loginService, $location, $rootScope){
         $scope.doLogin = function(){
-            if($scope.login){
-                console.log($scope.login);
-                userServices.login($scope.login).then(function(result){
+            $scope.login = {name: $scope.name,
+                           pwd: $scope.password}
+            if($scope.loginForm.$valid){
+                loginService.login($scope.login).then(function(result){
                     $scope.data = result;
-                    console.log(result.data.code);
-                    if (!result.error){
+                    if(result.data.code === 0){
+                        console.log(result);
                         window.sessionStorage['userInfo'] = JSON.stringify(result.data);
                         $rootScope.userInfo = JSON.parse(window.sessionStorage['userInfo']);
-                        //$location.path('/dashboard');
+                        $location.path('/dashboard');
                     }
                 })
             }
